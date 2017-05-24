@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ajax详解 | 前端开发</title>
+  <title>DOM操作 | 前端开发</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="XMLHttpRequest详解对象创建XMLHttpRequest兼容判断var xhr;if (window.XMLHttpRequest){    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码    xhr=new XMLHttpRequest();}else{    // IE6, IE5 浏览器执行代码    xhr=new Activ">
-<meta name="keywords" content="博客,ajax">
+  <meta name="description" content="浏览器解析过程HTML加载完毕，渲染引擎会在内存中把HTML文档，生成一个DOM树，个tElementById是获取类中DOM上的元素。然后操作的时候修改的是该元素的属性。 属性操作getAttribute()/setAttribute()/removeAttribute() 获取节点Sibling就是兄弟的意思Next：下一个的意思Previous：前一个的意思nextSibling：调用者是节">
+<meta name="keywords" content="博客,DOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ajax详解">
-<meta property="og:url" content="https://a-brave-gril.github.io/2017/05/24/post-1/index.html">
+<meta property="og:title" content="DOM操作">
+<meta property="og:url" content="https://a-brave-gril.github.io/2017/05/23/hello-world/index.html">
 <meta property="og:site_name" content="前端开发">
-<meta property="og:description" content="XMLHttpRequest详解对象创建XMLHttpRequest兼容判断var xhr;if (window.XMLHttpRequest){    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码    xhr=new XMLHttpRequest();}else{    // IE6, IE5 浏览器执行代码    xhr=new Activ">
-<meta property="og:updated_time" content="2017-05-24T05:17:27.249Z">
+<meta property="og:description" content="浏览器解析过程HTML加载完毕，渲染引擎会在内存中把HTML文档，生成一个DOM树，个tElementById是获取类中DOM上的元素。然后操作的时候修改的是该元素的属性。 属性操作getAttribute()/setAttribute()/removeAttribute() 获取节点Sibling就是兄弟的意思Next：下一个的意思Previous：前一个的意思nextSibling：调用者是节">
+<meta property="og:updated_time" content="2017-05-24T06:20:17.781Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ajax详解">
-<meta name="twitter:description" content="XMLHttpRequest详解对象创建XMLHttpRequest兼容判断var xhr;if (window.XMLHttpRequest){    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码    xhr=new XMLHttpRequest();}else{    // IE6, IE5 浏览器执行代码    xhr=new Activ">
+<meta name="twitter:title" content="DOM操作">
+<meta name="twitter:description" content="浏览器解析过程HTML加载完毕，渲染引擎会在内存中把HTML文档，生成一个DOM树，个tElementById是获取类中DOM上的元素。然后操作的时候修改的是该元素的属性。 属性操作getAttribute()/setAttribute()/removeAttribute() 获取节点Sibling就是兄弟的意思Next：下一个的意思Previous：前一个的意思nextSibling：调用者是节">
   
     <link rel="alternate" href="/atom.xml" title="前端开发" type="application/atom+xml">
   
@@ -68,14 +68,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-post-1" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2017/05/24/post-1/" class="article-date">
-  <time datetime="2017-05-23T16:03:53.000Z" itemprop="datePublished">2017-05-24</time>
+    <a href="/2017/05/23/hello-world/" class="article-date">
+  <time datetime="2017-05-23T14:50:44.361Z" itemprop="datePublished">2017-05-23</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/ajax/">ajax</a>
+    <a class="article-category-link" href="/categories/js/">js</a>
   </div>
 
   </div>
@@ -86,7 +86,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      ajax详解
+      DOM操作
     </h1>
   
 
@@ -94,36 +94,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="XMLHttpRequest详解"><a href="#XMLHttpRequest详解" class="headerlink" title="XMLHttpRequest详解"></a>XMLHttpRequest详解</h2><h4 id="对象创建XMLHttpRequest"><a href="#对象创建XMLHttpRequest" class="headerlink" title="对象创建XMLHttpRequest"></a>对象创建XMLHttpRequest</h4><p>兼容判断<br>var xhr;<br>if (window.XMLHttpRequest)<br>{<br>    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码<br>    xhr=new XMLHttpRequest();<br>}<br>else<br>{<br>    // IE6, IE5 浏览器执行代码<br>    xhr=new ActiveXObject(“Microsoft.xhr”);<br>}</p>
-<h4 id="get请求步骤"><a href="#get请求步骤" class="headerlink" title="get请求步骤"></a>get请求步骤</h4><ul>
-<li>var xhr = createXHR();//创建对象</li>
-<li>xhr.open(‘get’, ‘03form.php’, true);//初始化请求</li>
-<li>xhr.send(null);;//发送请求</li>
-<li>xhr.onreadystatechange = function() {}//指定一些回调函数</li>
-<li>状态值xhr.readyState<h4 id="post请求步骤"><a href="#post请求步骤" class="headerlink" title="post请求步骤"></a>post请求步骤</h4></li>
-<li>xhr.open(“post”,”地址”,”标志位”);//初始化请求</li>
-<li>xhr.setRequestHeader(“”,””);//设置http头信息</li>
-<li>xhr.send(参数);//发送请求</li>
-<li>xhr.onreadystatechange = function() {<br>  //请求成功<br>  if(xhr.readyState == 4){<pre><code>if(xhr.status == 200){
-    //取回返回数据
-}else{
-    //请求失败执行代码
-}
-</code></pre>  }<br>}//指定回调函数<h4 id="xhr-readyState详解"><a href="#xhr-readyState详解" class="headerlink" title="xhr.readyState详解"></a>xhr.readyState详解</h4></li>
-<li>0:XMLHttpRequest 对象创建完成</li>
-<li>1：表示发送请求的动作准备好了，但是还没有开始发送</li>
-<li>2：表示已经发送完成</li>
-<li>3：服务器已经返回了数据</li>
-<li>4：服务器返回的数据已经可以使用<h4 id="ajax跨域问题"><a href="#ajax跨域问题" class="headerlink" title="ajax跨域问题"></a>ajax跨域问题</h4>出于安全性考虑，浏览器不允许ajax跨域获得数据<br>跨域通过script的src加载js的方式传递数据以函数参数的形式传统数据<br>解决方法：就是在请求的API中加入要请求的跨域的网址，当请求成功后，将返回的网址动态的加载到页面上，就可以解决跨域问题</li>
-</ul>
+        <h2 id="浏览器解析过程"><a href="#浏览器解析过程" class="headerlink" title="浏览器解析过程"></a>浏览器解析过程</h2><p>HTML加载完毕，渲染引擎会在内存中把HTML文档，生成一个DOM树，个tElementById是获取类中DOM上的元素。然后操作的时候修改的是该元素的属性。</p>
+<h4 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h4><p>getAttribute()/setAttribute()/removeAttribute()</p>
+<h4 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h4><p>Sibling就是兄弟的意思<br>Next：下一个的意思<br>Previous：前一个的意思<br>nextSibling：调用者是节点。IE678中指下一个元素节点（标签）。在火狐谷歌IE9+以后都指的是下一个节点（包括空文档和换行节点）<br>nextElementSibling：在火狐谷歌IE9都指的是下一个元素节点。<br>总结：在IE678中用nextSibling，在火狐谷歌IE9+以后用nextElementSibling<br>下一个兄弟节点 = 节点.nextElementSibling || 节点.nextSibling<br>previousSibling：调用者是节点。IE678中指前一个元素节点（标签）。在火狐谷歌IE9+以后都是指的前一个节点（包括空文档和换行节点）。<br>previousElementSibling：在火狐谷歌IE9都指的是前一个元素节点。<br>总结：在IE678中用previousSibling，在火狐谷歌IE9+以后用reviousElementSibling<br>下一个兄弟节点 = 节点.previousElementSibling || 节点.previousSibling</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://a-brave-gril.github.io/2017/05/24/post-1/" data-id="cj32lt9oz0001lwr4087t66qq" class="article-share-link">Share</a>
+      <a data-url="https://a-brave-gril.github.io/2017/05/23/hello-world/" data-id="cj32lt9oo0000lwr4ygqbpvdt" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
 
     </footer>
   </div>
@@ -131,11 +112,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2017/05/23/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">DOM操作</div>
+    <a href="/2017/05/24/post-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          ajax详解
+        
+      </div>
     </a>
+  
   
 </nav>
 

@@ -68,70 +68,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/05/24/hello-world/" class="article-date">
-  <time datetime="2017-05-23T16:03:53.000Z" itemprop="datePublished">2017-05-24</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/ajax/">ajax</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/24/hello-world/">ajax详解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="XMLHttpRequest详解"><a href="#XMLHttpRequest详解" class="headerlink" title="XMLHttpRequest详解"></a>XMLHttpRequest详解</h2><h4 id="对象创建XMLHttpRequest"><a href="#对象创建XMLHttpRequest" class="headerlink" title="对象创建XMLHttpRequest"></a>对象创建XMLHttpRequest</h4><p>兼容判断<br>var xhr;<br>if (window.XMLHttpRequest)<br>{<br>    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码<br>    xhr=new XMLHttpRequest();<br>}<br>else<br>{<br>    // IE6, IE5 浏览器执行代码<br>    xhr=new ActiveXObject(“Microsoft.xhr”);<br>}</p>
-<h4 id="get请求步骤"><a href="#get请求步骤" class="headerlink" title="get请求步骤"></a>get请求步骤</h4><ul>
-<li>var xhr = createXHR();//创建对象</li>
-<li>xhr.open(‘get’, ‘03form.php’, true);//初始化请求</li>
-<li>xhr.send(null);;//发送请求</li>
-<li>xhr.onreadystatechange = function() {}//指定一些回调函数</li>
-<li>状态值xhr.readyState<h4 id="post请求步骤"><a href="#post请求步骤" class="headerlink" title="post请求步骤"></a>post请求步骤</h4></li>
-<li>xhr.open(“post”,”地址”,”标志位”);//初始化请求</li>
-<li>xhr.setRequestHeader(“”,””);//设置http头信息</li>
-<li>xhr.send(参数);//发送请求</li>
-<li>xhr.onreadystatechange = function() {<br>  //请求成功<br>  if(xhr.readyState == 4){<pre><code>if(xhr.status == 200){
-    //取回返回数据
-}else{
-    //请求失败执行代码
-}
-</code></pre>  }<br>}//指定回调函数<h4 id="xhr-readyState详解"><a href="#xhr-readyState详解" class="headerlink" title="xhr.readyState详解"></a>xhr.readyState详解</h4></li>
-<li>0:XMLHttpRequest 对象创建完成</li>
-<li>1：表示发送请求的动作准备好了，但是还没有开始发送</li>
-<li>2：表示已经发送完成</li>
-<li>3：服务器已经返回了数据</li>
-<li>4：服务器返回的数据已经可以使用<h4 id="ajax跨域问题"><a href="#ajax跨域问题" class="headerlink" title="ajax跨域问题"></a>ajax跨域问题</h4>出于安全性考虑，浏览器不允许ajax跨域获得数据<br>跨域通过script的src加载js的方式传递数据以函数参数的形式传统数据<br>解决方法：就是在请求的API中加入要请求的跨域的网址，当请求成功后，将返回的网址动态的加载到页面上，就可以解决跨域问题</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://a-brave-gril.github.io/2017/05/24/hello-world/" data-id="cj32hawfh0000gcr47fdwouk4" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-post-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/05/24/post-1/" class="article-date">
@@ -184,10 +120,55 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://a-brave-gril.github.io/2017/05/24/post-1/" data-id="cj32hawgq0001gcr47ub8jxv3" class="article-share-link">Share</a>
+      <a data-url="https://a-brave-gril.github.io/2017/05/24/post-1/" data-id="cj32lt9oz0001lwr4087t66qq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/05/23/hello-world/" class="article-date">
+  <time datetime="2017-05-23T14:50:44.361Z" itemprop="datePublished">2017-05-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/js/">js</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/05/23/hello-world/">DOM操作</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="浏览器解析过程"><a href="#浏览器解析过程" class="headerlink" title="浏览器解析过程"></a>浏览器解析过程</h2><p>HTML加载完毕，渲染引擎会在内存中把HTML文档，生成一个DOM树，个tElementById是获取类中DOM上的元素。然后操作的时候修改的是该元素的属性。</p>
+<h4 id="属性操作"><a href="#属性操作" class="headerlink" title="属性操作"></a>属性操作</h4><p>getAttribute()/setAttribute()/removeAttribute()</p>
+<h4 id="获取节点"><a href="#获取节点" class="headerlink" title="获取节点"></a>获取节点</h4><p>Sibling就是兄弟的意思<br>Next：下一个的意思<br>Previous：前一个的意思<br>nextSibling：调用者是节点。IE678中指下一个元素节点（标签）。在火狐谷歌IE9+以后都指的是下一个节点（包括空文档和换行节点）<br>nextElementSibling：在火狐谷歌IE9都指的是下一个元素节点。<br>总结：在IE678中用nextSibling，在火狐谷歌IE9+以后用nextElementSibling<br>下一个兄弟节点 = 节点.nextElementSibling || 节点.nextSibling<br>previousSibling：调用者是节点。IE678中指前一个元素节点（标签）。在火狐谷歌IE9+以后都是指的前一个节点（包括空文档和换行节点）。<br>previousElementSibling：在火狐谷歌IE9都指的是前一个元素节点。<br>总结：在IE678中用previousSibling，在火狐谷歌IE9+以后用reviousElementSibling<br>下一个兄弟节点 = 节点.previousElementSibling || 节点.previousSibling</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://a-brave-gril.github.io/2017/05/23/hello-world/" data-id="cj32lt9oo0000lwr4ygqbpvdt" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DOM/">DOM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博客/">博客</a></li></ul>
 
     </footer>
   </div>
@@ -205,7 +186,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">分类</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ajax/">ajax</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/ajax/">ajax</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/js/">js</a></li></ul>
     </div>
   </div>
 
@@ -215,7 +196,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/DOM/">DOM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博客/">博客</a></li></ul>
     </div>
   </div>
 
@@ -225,7 +206,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/博客/" style="font-size: 10px;">博客</a>
+      <a href="/tags/DOM/" style="font-size: 10px;">DOM</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/博客/" style="font-size: 20px;">博客</a>
     </div>
   </div>
 
@@ -247,11 +228,11 @@
       <ul>
         
           <li>
-            <a href="/2017/05/24/hello-world/">ajax详解</a>
+            <a href="/2017/05/24/post-1/">ajax详解</a>
           </li>
         
           <li>
-            <a href="/2017/05/24/post-1/">ajax详解</a>
+            <a href="/2017/05/23/hello-world/">DOM操作</a>
           </li>
         
       </ul>
