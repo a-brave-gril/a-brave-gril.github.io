@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="agax,跨域,请求" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="定义介绍1. ajax：ajax通过在后台与服务器进行少量数据交换，可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下， 对网页的某部分进行更新。 2. 同源策略：一个域内的脚本仅仅具有本域内的权限，可以理解为本域脚本只能读写本域内的资源，而无法 访问其它域的资源。这种安全限制称为同源策略。 3. http：超文本传输协议 4. 跨域：指的是浏览器不能执行不同网站的脚本。它是由浏览器">
+<meta name="keywords" content="agax,跨域,请求">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ajax详解">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/ajax/index.html">
+<meta property="og:site_name" content="前端笔记，欢迎交流">
+<meta property="og:description" content="定义介绍1. ajax：ajax通过在后台与服务器进行少量数据交换，可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下， 对网页的某部分进行更新。 2. 同源策略：一个域内的脚本仅仅具有本域内的权限，可以理解为本域脚本只能读写本域内的资源，而无法 访问其它域的资源。这种安全限制称为同源策略。 3. http：超文本传输协议 4. 跨域：指的是浏览器不能执行不同网站的脚本。它是由浏览器">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/ajax/reponse.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/ajax/ajax.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/ajax/code.jpg">
+<meta property="og:updated_time" content="2019-03-17T15:57:07.220Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ajax详解">
+<meta name="twitter:description" content="定义介绍1. ajax：ajax通过在后台与服务器进行少量数据交换，可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下， 对网页的某部分进行更新。 2. 同源策略：一个域内的脚本仅仅具有本域内的权限，可以理解为本域脚本只能读写本域内的资源，而无法 访问其它域的资源。这种安全限制称为同源策略。 3. http：超文本传输协议 4. 跨域：指的是浏览器不能执行不同网站的脚本。它是由浏览器">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/ajax/reponse.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/ajax/"/>
+
+
+
+
+
+  <title>ajax详解 | 前端笔记，欢迎交流</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">前端笔记，欢迎交流</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">只想好好做好一件事，一件终身为之努力的事</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="嘻嘻">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="前端笔记，欢迎交流">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ajax详解</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-17T23:56:27+08:00">
+                2019-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端笔记-JS篇/" itemprop="url" rel="index">
+                    <span itemprop="name">前端笔记-JS篇</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="定义介绍"><a href="#定义介绍" class="headerlink" title="定义介绍"></a>定义介绍</h2><pre><code>1. ajax：ajax通过在后台与服务器进行少量数据交换，可以使网页实现异步更新。这意味着可以在不重新加载整个网页的情况下，
+对网页的某部分进行更新。
+2. 同源策略：一个域内的脚本仅仅具有本域内的权限，可以理解为本域脚本只能读写本域内的资源，而无法
+访问其它域的资源。这种安全限制称为同源策略。
+3. http：超文本传输协议
+4. 跨域：指的是浏览器不能执行不同网站的脚本。它是由浏览器的同源策略造成的，是浏览器施加的安全限制。
+5. XMLHttpRequest：所有浏览器XMLHttpRequest，他定义了用脚本操纵HTTP的API。
+</code></pre><hr>
+<h2 id="浏览器请求数据原理"><a href="#浏览器请求数据原理" class="headerlink" title="浏览器请求数据原理"></a>浏览器请求数据原理</h2><p> <img src="/2019/03/17/ajax/reponse.jpg" alt="浏览器请求原理" title="浏览器请求原理"></p>
+<hr>
+<h2 id="请求过程详解"><a href="#请求过程详解" class="headerlink" title="请求过程详解"></a>请求过程详解</h2><pre><code>1. 实例化XMLHttpRequest对象
+2. 一个HTTP请求有4个部分组成
+    1.请求的方式
+    2.请求的url
+    3.一个可选的请求主体
+    4.可选的请求头 
+3. 一个服务器响应包括三部分
+    1.标识成功失败的状态码
+    2.一个响应头集合
+    3.一个响应主体
+</code></pre><hr>
+<h2 id="代码对应的请求过程"><a href="#代码对应的请求过程" class="headerlink" title="代码对应的请求过程"></a>代码对应的请求过程</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">var request = new XMLHttpRequest() //实例化XMLHttpRequest对象</div><div class="line">// HTTP请求</div><div class="line">requesrt.open(&quot;请求方式&quot;，&quot;请求的URL&quot;,&quot;是否异步执行&quot;)。</div><div class="line">request.setRequestHeader(&quot;Content-Type&quot;,&quot;text/plain&quot;) //设置请求头 说明发送的数据类型  </div><div class="line">当请求方式是POST时需要设置当是get时不用设置</div><div class="line">request.send() //向服务器发送请求 get没有请求主体 但是POST 有  而且要和请求头匹配</div><div class="line">// 事件的响应</div><div class="line">getRequestHeader()和getAllRequestHeaders()能查询响应头</div><div class="line">响应主体可以从responseText属性中得到文本形式的，从reponseXML属性中得到document形式的。</div><div class="line">readyState指定了HTTP请求的状态，每当 readyState 改变时，就会触发 onreadystatechange 事件</div><div class="line">注意：最好不要使用同步请求，因为JS是单线程的。</div></pre></td></tr></table></figure>
+<p>   <img src="/2019/03/17/ajax/ajax.jpg" alt="readyState取值" title="readyState取值"><br>   <img src="/2019/03/17/ajax/code.jpg" alt="code取值" title="code取值"></p>
+<hr>
+<h2 id="get-请求实例"><a href="#get-请求实例" class="headerlink" title="get 请求实例"></a>get 请求实例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">function get(url,callback)&#123;</div><div class="line">	var request = new XMLHttpRequest(); </div><div class="line">	request.open(&apos;get&apos;,url);  </div><div class="line">	request.send(null);</div><div class="line">	request.onreadystatechange = function()&#123;</div><div class="line">		// 判断是否成功</div><div class="line">		if(request.readyState === 4 &amp;&amp; requeat.status === 200)&#123;</div><div class="line">			callback(request.responseText);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h2 id="post-请求实例"><a href="#post-请求实例" class="headerlink" title="post 请求实例"></a>post 请求实例</h2><pre><code>function post(url,callback){
+    var request = new XMLHttpRequest();
+    request.open(&apos;post&apos;,url);
+    request.setRequestHeader(&quot;Content-type&quot;,&quot;application/x-www-form-urlencoded&quot;);
+    request.send(&quot;发送数据&quot;);
+    function.onreadystatechange = function(){
+        if(request.readyState == 4 &amp;&amp; request.status == 200){
+            callback(request.responseText);
+        }
+    }
+}
+</code></pre><hr>
+<h2 id="跨域请求"><a href="#跨域请求" class="headerlink" title="跨域请求"></a>跨域请求</h2><pre><code>1. 现在的浏览器都支持CORS，如果服务器支持跨域请求，那就可以实现跨域请求。
+2. JSONP：用&lt;script&gt;发送HTTP请求，将script插入到document中，然后浏览器会去请求下载src指向的URL。并且包含JSON编码的数据会自动执行。
+JSONP请求的不足：JSONP请求可能会带来安全隐患，而且不容易判断请求是否成功
+</code></pre><hr>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/JS，ajax/" rel="tag"># JS，ajax</a>
+          
+            <a href="/tags/跨域/" rel="tag"># 跨域</a>
+          
+            <a href="/tags/请求/" rel="tag"># 请求</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/17/browser/" rel="prev" title="浏览器工作原理">
+                浏览器工作原理 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">嘻嘻</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">Tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#定义介绍"><span class="nav-number">1.</span> <span class="nav-text">定义介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器请求数据原理"><span class="nav-number">2.</span> <span class="nav-text">浏览器请求数据原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#请求过程详解"><span class="nav-number">3.</span> <span class="nav-text">请求过程详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码对应的请求过程"><span class="nav-number">4.</span> <span class="nav-text">代码对应的请求过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#get-请求实例"><span class="nav-number">5.</span> <span class="nav-text">get 请求实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#post-请求实例"><span class="nav-number">6.</span> <span class="nav-text">post 请求实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨域请求"><span class="nav-number">7.</span> <span class="nav-text">跨域请求</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">嘻嘻</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
