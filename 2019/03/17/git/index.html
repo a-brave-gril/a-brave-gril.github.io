@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="git入门,git指令" />
 
 
 
@@ -79,12 +79,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端笔记，欢迎交流">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="git入门小结 git是分布式版本控制系统。 git与svnde 比较 集中式版本控制系统指的是版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器. 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。">
+<meta name="keywords" content="git入门,git指令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git入门小结">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/git/index.html">
 <meta property="og:site_name" content="前端笔记，欢迎交流">
+<meta property="og:description" content="git入门小结 git是分布式版本控制系统。 git与svnde 比较 集中式版本控制系统指的是版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器. 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。">
+<meta property="og:image" content="http://yoursite.com/2019/03/17/git/git.jpg">
+<meta property="og:updated_time" content="2019-03-17T15:33:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端笔记，欢迎交流">
+<meta name="twitter:title" content="git入门小结">
+<meta name="twitter:description" content="git入门小结 git是分布式版本控制系统。 git与svnde 比较 集中式版本控制系统指的是版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器. 分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/17/git/git.jpg">
 
 
 
@@ -114,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/git/"/>
 
 
 
 
 
-  <title>前端笔记，欢迎交流</title>
+  <title>git入门小结 | 前端笔记，欢迎交流</title>
   
 
 
@@ -139,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +219,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -228,7 +234,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/git/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
@@ -245,9 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/webpack/" itemprop="url">webpack小结</a></h1>
+          <h1 class="post-title" itemprop="name headline">git入门小结</h1>
         
 
         <div class="post-meta">
@@ -319,70 +323,47 @@
       
 
       
-        
-          
-            <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
-2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。
-3.      webpack有强大的插件系统，当webpack内置的功能不能满足我们的构建需求时，我们可以通过使用插件来提高工作效率。
-</code></pre><hr>
-<h2 id="webpack的注意事项"><a href="#webpack的注意事项" class="headerlink" title="webpack的注意事项"></a>webpack的注意事项</h2><pre><code>1.  在使用webpack之前，一定要确定使用的是最新的node.js版本，不然在打包的时候会发生很多错误。
-2.  webpack1与webpack2使用的时候还是有所差异的，所以要先确定你使用的版本号。
-</code></pre><hr>
-<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><pre><code>1.  首先新建一个文件夹并执行 npm init(初始化)
-2.  下载webpack npm install --save-dev webpack
-3.  下载您需要的插件以及loader （比如：npm install --save-dev css-loader--save-dev html-webpack-plugin）
-4.  新建webpack.config.js文件，并写入相应配置项，执行 webpack指令就可以完成打包。
-5.  webpack启动本地服务。推荐这篇文章：http://www.jianshu.com/p/42e11515c10f
-6.  注意：如果在下载的时候出现错误，您可以试试 cnpm install --save-dev w在国内下载的快，
-        但是npm要从国外下载会很慢。但是cnpm更新的可能没有npm及时
-</code></pre><hr>
-<h2 id="webpack-部分指令"><a href="#webpack-部分指令" class="headerlink" title="webpack 部分指令"></a>webpack 部分指令</h2><pre><code>1.      npm install --save-dev webpack（安装）
-2.      npm install --save-dev style-loader(下载style-loader  style-load是将打包后的样式插入html的head中)
-3.      npm install --save-dev css-loader(下载css-loader)
-4.      npm install --save-dev html-webpack-plugin(下载html-webpack-plug插件，
-          html-webpack-plugin主要是自动生成打包后的html文件，并自动引用打包文件)
-5.      npm install --save-dev extract-text-webpack-plugin(下载extract-tt-webpack-plugin插件，
-          extract-text-webpack-plugin主要是将css打包当单独的一个css样式中)
-6.      npm run server(启动本地服务器)
-7.      npm install --save-dev sass-loader (打包scss文件)
-</code></pre><hr>
-<h2 id="webpack-config-js-配置代码"><a href="#webpack-config-js-配置代码" class="headerlink" title="webpack.config.js 配置代码"></a>webpack.config.js 配置代码</h2><pre><code>···
-           var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;); // 打包生成html文件
-           const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;); // 将css文件单独打包到一个文件中
-           const path = require(&apos;path&apos;);
+        <h1 id="git入门小结"><a href="#git入门小结" class="headerlink" title="git入门小结"></a>git入门小结</h1><ol>
+<li>git是分布式版本控制系统。</li>
+<li>git与svnde 比较<ul>
+<li>集中式版本控制系统指的是版本库是集中存放在中央服务器的，而干活的时候，用的都是自己的电脑，所以要先从中央服务器取得最新的版本，然后开始干活，干完活了，再把自己的活推送给中央服务器.</li>
+<li>分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。</li>
+<li>与集中式版本控制系统（例如：SVN）相比集中式版本控制<br>系统最大的毛病就是必须联网才能工作。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>git的版本库<ul>
+<li>工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。</li>
+<li>版本库可以简单理解成一个目录，这个目录被git 管理起来，每个文件的修改、删除、git都能跟踪</li>
+<li>Git的版本库里存了很多东西，其中最重要的就是称为stage（或者叫index）的暂存区，还有Git为我们自动创建的第一个分支master，以及指向master的一个指针叫HEAD。</li>
+<li>特别注意得是：git只提交stage里的东西，所以提交之前一定要add再commit，不能直接commit</li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li><img src="/2019/03/17/git/git.jpg" ,alt="R" ,width="600" height="300"></li>
+</ol>
+<hr>
+<ol>
+<li>git部分命令<ul>
+<li>git init (将一个目录变成git管理仓库)</li>
+<li>git add “文件名”（将文件添加到仓库）</li>
+<li>git commit -m “”(把文件提交到仓库)</li>
+<li>git status （掌握当前仓库的状态）</li>
+<li>git diff (查看不同)</li>
+<li>git log (显示从近到远的提交日志)</li>
+<li>git    reflog (记录每次命令，以便找到 commit id)    </li>
+</ul>
+</li>
+</ol>
+<hr>
+<ol>
+<li>参考：<a href="https://www.liaoxuefeng.com/" target="_blank" rel="external">https://www.liaoxuefeng.com/</a></li>
+</ol>
 
-           module.exports = {
-                   entry: &apos;./src/main.js&apos;,//唯一的入口文件。
-                   devtool: &apos;inline-source-map&apos;,//调试时使用，可以定位到报错的文件以及位置
-                   output: {//出口文件 可以有多个
-                           filename: &apos;bundle.js&apos;, //打包的文件名
-                           path: path.resolve(__dirname, &apos;dist&apos;) // 打包文件路径
-                   },
-                   devServer: {
-                           contentBase: &quot;./dist&quot;,//本地服务器所加载的页面所在的目录
-                           historyApiFallback: true,//不跳转
-                           inline: true//实时刷新
-                   },
-                   module: {
-                           rules: [ //使用loader
-                                   {
-                                           test: /\.scss$/, //编译.scss文件
-                                           use: ExtractTextPlugin.extract({
-                                             fallback: &quot;style-loader&quot;,
-                                             use: [&quot;css-loader&quot;,&quot;sass-loader&quot;]
-                                           })
-                                   }
-                           ]
-                   },
-                   plugins: [ //使用插件
-                           new HtmlWebpackPlugin(),
-                           new ExtractTextPlugin(&quot;styles.css&quot;)
-                   ]
-           };
-   ···
-</code></pre>
-          
-        
       
     </div>
     
@@ -397,14 +378,42 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/前端/" rel="tag"># 前端</a>
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/css/" rel="next" title="css原理小结">
+                <i class="fa fa-chevron-left"></i> css原理小结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/17/plugin-alert/" rel="prev" title="alert插件学习心得（bootatrap）">
+                alert插件学习心得（bootatrap） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -414,14 +423,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -429,6 +435,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -449,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,6 +529,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git入门小结"><span class="nav-number">1.</span> <span class="nav-text">git入门小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -643,6 +678,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

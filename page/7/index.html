@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="前端笔记，欢迎交流">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/7/index.html">
 <meta property="og:site_name" content="前端笔记，欢迎交流">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记，欢迎交流">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/page/7/"/>
 
 
 
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/css/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/webpack/" itemprop="url">webpack小结</a></h1>
+                <a class="post-title-link" href="/2019/03/17/css/" itemprop="url">css原理小结</a></h1>
         
 
         <div class="post-meta">
@@ -282,8 +282,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端笔记-git篇/" itemprop="url" rel="index">
-                    <span itemprop="name">前端笔记-git篇</span>
+                  <a href="/categories/前端笔记-经验小结/" itemprop="url" rel="index">
+                    <span itemprop="name">前端笔记-经验小结</span>
                   </a>
                 </span>
 
@@ -321,66 +321,24 @@
       
         
           
-            <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
-2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。
-3.      webpack有强大的插件系统，当webpack内置的功能不能满足我们的构建需求时，我们可以通过使用插件来提高工作效率。
+            <h2 id="最近看了一些css样式的原理，下面是一些学习心得，如果有误欢迎指正。"><a href="#最近看了一些css样式的原理，下面是一些学习心得，如果有误欢迎指正。" class="headerlink" title="最近看了一些css样式的原理，下面是一些学习心得，如果有误欢迎指正。"></a>最近看了一些css样式的原理，下面是一些学习心得，如果有误欢迎指正。</h2><h2 id="position"><a href="#position" class="headerlink" title="position"></a>position</h2><pre><code>1.      position:static 默认值，无任何效果
+2.      position:relative 没有脱离文档流，相对于自己的位置定位。
+3.      position:absolute 脱离文档流，是根据最近的不是static的父元素定位的，如果都没有定位，则根据浏览器窗口定位。、
+4.      position:flex   相对于浏览器窗口定位，不脱离文档流。
 </code></pre><hr>
-<h2 id="webpack的注意事项"><a href="#webpack的注意事项" class="headerlink" title="webpack的注意事项"></a>webpack的注意事项</h2><pre><code>1.  在使用webpack之前，一定要确定使用的是最新的node.js版本，不然在打包的时候会发生很多错误。
-2.  webpack1与webpack2使用的时候还是有所差异的，所以要先确定你使用的版本号。
+<h2 id="display"><a href="#display" class="headerlink" title="display"></a>display</h2><pre><code>1.      display:inline-black  换行符会生成一个空白符，解决方法：父元素font-size：0，但是谷歌不支持，也可以用letter-spacing（控制文字间的水平距离）
+2.      display:inline-black 不会像float一样由于高度不一致导致排版失效，所有的inline-black和inline一样会把最高元素的高当做整行元素的高
 </code></pre><hr>
-<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><pre><code>1.  首先新建一个文件夹并执行 npm init(初始化)
-2.  下载webpack npm install --save-dev webpack
-3.  下载您需要的插件以及loader （比如：npm install --save-dev css-loader--save-dev html-webpack-plugin）
-4.  新建webpack.config.js文件，并写入相应配置项，执行 webpack指令就可以完成打包。
-5.  webpack启动本地服务。推荐这篇文章：http://www.jianshu.com/p/42e11515c10f
-6.  注意：如果在下载的时候出现错误，您可以试试 cnpm install --save-dev w在国内下载的快，
-        但是npm要从国外下载会很慢。但是cnpm更新的可能没有npm及时
+<h2 id="vertical-align"><a href="#vertical-align" class="headerlink" title="vertical-align"></a>vertical-align</h2><pre><code>1.      vertical-align  用来指定行内元素(inline-black 和 inline)或者单元格元素的垂直对齐方式
+2.      display:inline-black 不会像float一样由于高度不一致导致排版失效，所有的inline-black和inline一样会把最高元素的高当做整行元素的高。
+</code></pre><h2 id="visibility-和-display的区别"><a href="#visibility-和-display的区别" class="headerlink" title="visibility 和 display的区别"></a>visibility 和 display的区别</h2><pre><code>1.  占据空间：visibility还占据空间，但是display不占据空间
+2.  回流与重绘：display:none会引起回流和重绘，但是visibility:hidden不会。
+3、 株连性：父设置display:none时，子元素无论怎样都不会展示，但是如果父设置了visibility:hidden，子再重新设置一下还是会显示出来的。
 </code></pre><hr>
-<h2 id="webpack-部分指令"><a href="#webpack-部分指令" class="headerlink" title="webpack 部分指令"></a>webpack 部分指令</h2><pre><code>1.      npm install --save-dev webpack（安装）
-2.      npm install --save-dev style-loader(下载style-loader  style-load是将打包后的样式插入html的head中)
-3.      npm install --save-dev css-loader(下载css-loader)
-4.      npm install --save-dev html-webpack-plugin(下载html-webpack-plug插件，
-          html-webpack-plugin主要是自动生成打包后的html文件，并自动引用打包文件)
-5.      npm install --save-dev extract-text-webpack-plugin(下载extract-tt-webpack-plugin插件，
-          extract-text-webpack-plugin主要是将css打包当单独的一个css样式中)
-6.      npm run server(启动本地服务器)
-7.      npm install --save-dev sass-loader (打包scss文件)
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><pre><code>1.  脱离文档流的有：display:none、绝对定位、浮动
+2.  visibility:hidden 隐藏dom,但是在文档流中还占这位置。
 </code></pre><hr>
-<h2 id="webpack-config-js-配置代码"><a href="#webpack-config-js-配置代码" class="headerlink" title="webpack.config.js 配置代码"></a>webpack.config.js 配置代码</h2><pre><code>···
-           var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;); // 打包生成html文件
-           const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;); // 将css文件单独打包到一个文件中
-           const path = require(&apos;path&apos;);
 
-           module.exports = {
-                   entry: &apos;./src/main.js&apos;,//唯一的入口文件。
-                   devtool: &apos;inline-source-map&apos;,//调试时使用，可以定位到报错的文件以及位置
-                   output: {//出口文件 可以有多个
-                           filename: &apos;bundle.js&apos;, //打包的文件名
-                           path: path.resolve(__dirname, &apos;dist&apos;) // 打包文件路径
-                   },
-                   devServer: {
-                           contentBase: &quot;./dist&quot;,//本地服务器所加载的页面所在的目录
-                           historyApiFallback: true,//不跳转
-                           inline: true//实时刷新
-                   },
-                   module: {
-                           rules: [ //使用loader
-                                   {
-                                           test: /\.scss$/, //编译.scss文件
-                                           use: ExtractTextPlugin.extract({
-                                             fallback: &quot;style-loader&quot;,
-                                             use: [&quot;css-loader&quot;,&quot;sass-loader&quot;]
-                                           })
-                                   }
-                           ]
-                   },
-                   plugins: [ //使用插件
-                           new HtmlWebpackPlugin(),
-                           new ExtractTextPlugin(&quot;styles.css&quot;)
-                   ]
-           };
-   ···
-</code></pre>
           
         
       
@@ -419,7 +377,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/6/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/8/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 

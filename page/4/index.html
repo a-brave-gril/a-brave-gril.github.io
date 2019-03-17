@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="前端笔记，欢迎交流">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="前端笔记，欢迎交流">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端笔记，欢迎交流">
@@ -114,7 +114,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
 
 
 
@@ -228,7 +228,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/rules/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
@@ -247,7 +247,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/17/webpack/" itemprop="url">webpack小结</a></h1>
+                <a class="post-title-link" href="/2019/03/17/rules/" itemprop="url">前端W3C标准及规范</a></h1>
         
 
         <div class="post-meta">
@@ -269,28 +269,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端笔记-git篇/" itemprop="url" rel="index">
-                    <span itemprop="name">前端笔记-git篇</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -321,66 +299,93 @@
       
         
           
-            <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
-2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。
-3.      webpack有强大的插件系统，当webpack内置的功能不能满足我们的构建需求时，我们可以通过使用插件来提高工作效率。
-</code></pre><hr>
-<h2 id="webpack的注意事项"><a href="#webpack的注意事项" class="headerlink" title="webpack的注意事项"></a>webpack的注意事项</h2><pre><code>1.  在使用webpack之前，一定要确定使用的是最新的node.js版本，不然在打包的时候会发生很多错误。
-2.  webpack1与webpack2使用的时候还是有所差异的，所以要先确定你使用的版本号。
-</code></pre><hr>
-<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><pre><code>1.  首先新建一个文件夹并执行 npm init(初始化)
-2.  下载webpack npm install --save-dev webpack
-3.  下载您需要的插件以及loader （比如：npm install --save-dev css-loader--save-dev html-webpack-plugin）
-4.  新建webpack.config.js文件，并写入相应配置项，执行 webpack指令就可以完成打包。
-5.  webpack启动本地服务。推荐这篇文章：http://www.jianshu.com/p/42e11515c10f
-6.  注意：如果在下载的时候出现错误，您可以试试 cnpm install --save-dev w在国内下载的快，
-        但是npm要从国外下载会很慢。但是cnpm更新的可能没有npm及时
-</code></pre><hr>
-<h2 id="webpack-部分指令"><a href="#webpack-部分指令" class="headerlink" title="webpack 部分指令"></a>webpack 部分指令</h2><pre><code>1.      npm install --save-dev webpack（安装）
-2.      npm install --save-dev style-loader(下载style-loader  style-load是将打包后的样式插入html的head中)
-3.      npm install --save-dev css-loader(下载css-loader)
-4.      npm install --save-dev html-webpack-plugin(下载html-webpack-plug插件，
-          html-webpack-plugin主要是自动生成打包后的html文件，并自动引用打包文件)
-5.      npm install --save-dev extract-text-webpack-plugin(下载extract-tt-webpack-plugin插件，
-          extract-text-webpack-plugin主要是将css打包当单独的一个css样式中)
-6.      npm run server(启动本地服务器)
-7.      npm install --save-dev sass-loader (打包scss文件)
-</code></pre><hr>
-<h2 id="webpack-config-js-配置代码"><a href="#webpack-config-js-配置代码" class="headerlink" title="webpack.config.js 配置代码"></a>webpack.config.js 配置代码</h2><pre><code>···
-           var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;); // 打包生成html文件
-           const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;); // 将css文件单独打包到一个文件中
-           const path = require(&apos;path&apos;);
+            <h2 id="css代码规范"><a href="#css代码规范" class="headerlink" title="css代码规范"></a>css代码规范</h2><ol>
+<li>对于属性值或颜色参数，省略小于 1 的小数前面的 0 （例如，.5 代替 0.5；-.5px 代替-0.5px）;</li>
+<li>十六进制值应该全部小写和尽量简写，例如，#fff 代替 #ffffff;</li>
+<li>避免为 0 值指定单位，例如，用 margin: 0; 代替 margin: 0px;</li>
+<li>与 <link> 相比，@import 要慢很多，不光增加额外的请求数，还会导致不可预料的问题;</li>
+<li>通过 Sass 或 Less 类似的 CSS 预处理器将多个 CSS 文件编译为一个文件;</li>
+<li>将公用的东西抽出来 写成组件，利于CSS代码的维护;</li>
+<li>任何时候尽可能使用 classnames。标签选择器在使用上没有问题，但是其性能上稍弱，并且表意不明确;</li>
+<li>慎重选择高消耗的样式，高消耗属性在绘制前需要浏览器进行大量计算;<ul>
+<li>box-shadows</li>
+</ul>
+<ul>
+<li>border-radius</li>
+<li>transparency </li>
+<li>transforms</li>
+<li>CSS filters（性能杀手）</li>
+</ul>
+</li>
+<li>Display 属性会影响页面的渲染，请合理使用;<ul>
+<li>display: inline后不应该再使用 width、height、margin、padding 以及 float；  </li>
+<li>display: inline-block 后不应该再使用 float；  </li>
+<li>display: block 后不应该再使用 vertical-align；  </li>
+<li>display: table-* 后不应该再使用 margin 或者 float；              </li>
+</ul>
+</li>
+<li>CSS选择器从右到左匹配的机制后，只要当前选择符的左边还有其他选择符，样式系统就会继续向左移动，<br>直到找到和规则匹配的选择符，或者因为不匹配而退出</li>
+</ol>
+<hr>
+<h2 id="html代码规范"><a href="#html代码规范" class="headerlink" title="html代码规范"></a>html代码规范</h2><ol>
+<li>属性顺序<ul>
+<li>HTML 属性应该按照特定的顺序出现以保证易读性（id,class,name,data-xxx,(src, for, type, href),<br>(title, alt),(aria-xxx, role)）。</li>
+<li>属性的定义，统一使用双引号</li>
+<li>HTML5 规范中 disabled、checked、selected 等属性不用设置值。</li>
+</ul>
+</li>
+<li>嵌套<ul>
+<li>a 不允许嵌套div这种约束属于语义嵌套约束，与之区别的约束还有严格嵌套约束比如a 不允许嵌套 a。</li>
+<li>严格嵌套约束在所有的浏览器下都不被允许；而语义嵌套约束，浏览器大多会容错处理，<br>生成的文档树可能相互不太一样</li>
+<li>inline-Level 元素，仅可以包含文本或其它 inline-Level 元素;</li>
+<li>a里不可以嵌套交互式元素a、button、select等;</li>
+<li>p里不可以嵌套块级元素div、h1~h6、p、ul/ol/li、dl/dt/dd、form等。</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="HEAD"><a href="#HEAD" class="headerlink" title="HEAD"></a>HEAD</h2><ol>
+<li>为每个 HTML 页面的第一行添加标准模式（standard mode）的声明， 这样能够确保在每个浏览器中拥有一致的表现<ul>
+<li>html lang=”zh-Hans”（中文）</li>
+<li>html lang=”zh-cmn-Hans”（简体中文）</li>
+<li>html lang=”zh-cmn-Hant”（繁体中文）</li>
+<li>html lang=”en”（English）</li>
+<li>指定字符编码的 meta 必须是 head 的第一个直接子元素；</li>
+</ul>
+</li>
+<li>SEO <ul>
+<li>title   //页面名称</li>
+<li>meta name=”keywords” content=”your keywords”  //页面关键词</li>
+<li>meta name=”description” content=”your description”  //页面描述</li>
+<li>meta name=”author” content=”author,email address”   // 页面作者</li>
+</ul>
+</li>
+<li>使用最新的浏览器<ul>
+<li>meta http-equiv=”X-UA-Compatible” content=”IE=edge,chrome=1”</li>
+</ul>
+</li>
+<li>favicon<ul>
+<li>在未指定 favicon 时，大多数浏览器会请求 Web Server 根目录下的 favicon.ico 。为了保favicon 可访问，避免404，必须遵循以下两种方法之一：1.在 Web Server 根目录放置 favicon.ico 文件；2.link rel=”shortcut icon” href=”path/to/favicon.ico”</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="JS代码规范"><a href="#JS代码规范" class="headerlink" title="JS代码规范"></a>JS代码规范</h2><ol>
+<li>变量, 使用 Camel 命名法。</li>
+<li>私有属性、变量和方法以下划线 _ 开头。</li>
+<li>类名，使用名词。</li>
+<li>函数名，使用动宾短语。</li>
+<li>boolean 类型的变量使用 is 或 has 开头。</li>
+<li>Promise 对象用动宾短语的进行时表达。</li>
+<li>Promise 类型检测优先使用 typeof。对象类型检测使用 instanceof。null 或 undefined 的检测使用 == null。</li>
+<li>Promise 不要在 Array 上使用 for-in 循环。</li>
+<li>Promise 浏览器遍历 DOM 元素的代价是昂贵的。最简单优化 DOM 树查询的方案是，当一个元素出现多次时，将它保存在一个变量中，就避免多次查询 DOM 树了。</li>
+<li>Promise 循环无疑是和 JavaScript 性能非常相关的一部分。通过存储数组的长度，可以有效避免每次循环重新计算。（注: 虽然现代浏览器引擎会自动优化这个过程，但是不要忘记还有旧的浏览器。）</li>
+<li>当你无法保证嵌入第三方内容比如 Youtube 视频或者一个 like/tweet 按钮可以正常工作的时候，你需要考虑用异步加载这些代码，避免阻塞整个页面加载。</li>
+</ol>
+<hr>
+<p>参考链接：<a><a href="https://www.w3cschool.cn/webdevelopment/q3k8wozt.html" target="_blank" rel="external">https://www.w3cschool.cn/webdevelopment/q3k8wozt.html</a></a></p>
 
-           module.exports = {
-                   entry: &apos;./src/main.js&apos;,//唯一的入口文件。
-                   devtool: &apos;inline-source-map&apos;,//调试时使用，可以定位到报错的文件以及位置
-                   output: {//出口文件 可以有多个
-                           filename: &apos;bundle.js&apos;, //打包的文件名
-                           path: path.resolve(__dirname, &apos;dist&apos;) // 打包文件路径
-                   },
-                   devServer: {
-                           contentBase: &quot;./dist&quot;,//本地服务器所加载的页面所在的目录
-                           historyApiFallback: true,//不跳转
-                           inline: true//实时刷新
-                   },
-                   module: {
-                           rules: [ //使用loader
-                                   {
-                                           test: /\.scss$/, //编译.scss文件
-                                           use: ExtractTextPlugin.extract({
-                                             fallback: &quot;style-loader&quot;,
-                                             use: [&quot;css-loader&quot;,&quot;sass-loader&quot;]
-                                           })
-                                   }
-                           ]
-                   },
-                   plugins: [ //使用插件
-                           new HtmlWebpackPlugin(),
-                           new ExtractTextPlugin(&quot;styles.css&quot;)
-                   ]
-           };
-   ···
-</code></pre>
           
         
       
@@ -419,7 +424,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 

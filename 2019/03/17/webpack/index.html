@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="webpack入门,webpack配置代码" />
 
 
 
@@ -79,12 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端笔记，欢迎交流">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。webpack与其他打包工具的比较1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能 2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。 3.      webpack有强大的插件系统，当webpack内置的功能不能满足我">
+<meta name="keywords" content="webpack入门,webpack配置代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack小结">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/webpack/index.html">
 <meta property="og:site_name" content="前端笔记，欢迎交流">
+<meta property="og:description" content="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。webpack与其他打包工具的比较1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能 2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。 3.      webpack有强大的插件系统，当webpack内置的功能不能满足我">
+<meta property="og:updated_time" content="2019-03-17T15:33:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端笔记，欢迎交流">
+<meta name="twitter:title" content="webpack小结">
+<meta name="twitter:description" content="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。webpack与其他打包工具的比较1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能 2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。 3.      webpack有强大的插件系统，当webpack内置的功能不能满足我">
 
 
 
@@ -114,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/webpack/"/>
 
 
 
 
 
-  <title>前端笔记，欢迎交流</title>
+  <title>webpack小结 | 前端笔记，欢迎交流</title>
   
 
 
@@ -139,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -245,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/webpack/" itemprop="url">webpack小结</a></h1>
+          <h1 class="post-title" itemprop="name headline">webpack小结</h1>
         
 
         <div class="post-meta">
@@ -319,9 +321,7 @@
       
 
       
-        
-          
-            <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
+        <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
 2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。
 3.      webpack有强大的插件系统，当webpack内置的功能不能满足我们的构建需求时，我们可以通过使用插件来提高工作效率。
 </code></pre><hr>
@@ -381,8 +381,6 @@
            };
    ···
 </code></pre>
-          
-        
       
     </div>
     
@@ -397,14 +395,40 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+            <a href="/tags/打包/" rel="tag"># 打包</a>
+          
+            <a href="/tags/webpack配置/" rel="tag"># webpack配置</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/vue-component/" rel="next" title="vue组件传值以及问题总结">
+                <i class="fa fa-chevron-left"></i> vue组件传值以及问题总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -414,14 +438,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -429,6 +450,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -449,8 +474,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,6 +544,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><span class="nav-number">1.</span> <span class="nav-text">webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack与其他打包工具的比较"><span class="nav-number">2.</span> <span class="nav-text">webpack与其他打包工具的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack的注意事项"><span class="nav-number">3.</span> <span class="nav-text">webpack的注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装webpack"><span class="nav-number">4.</span> <span class="nav-text">安装webpack</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-部分指令"><span class="nav-number">5.</span> <span class="nav-text">webpack 部分指令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#webpack-config-js-配置代码"><span class="nav-number">6.</span> <span class="nav-text">webpack.config.js 配置代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -643,6 +693,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="vue，vue组件,vue组件传值,vue组件传值问题总结" />
 
 
 
@@ -79,12 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="前端笔记，欢迎交流">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="介绍   vue组件能够高效的复用代码，并且将公用的功能提取出来也有利于代码的维护。但是在编写vue组件的时候，经常会遇到组件之间的数据传递的问题。下面是我总结的组件之间传值的种类，以及我工作中遇到传值问题的解决方法。  父组件传值给子组件1、父组件通过 Prop 向子组件传递数据 举例说明； 父组件；&amp;lt;component :post-data=&amp;quot;dataList&amp;quot;&amp;gt">
+<meta name="keywords" content="vue，vue组件,vue组件传值,vue组件传值问题总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue组件传值以及问题总结">
+<meta property="og:url" content="http://yoursite.com/2019/03/17/vue-component/index.html">
 <meta property="og:site_name" content="前端笔记，欢迎交流">
+<meta property="og:description" content="介绍   vue组件能够高效的复用代码，并且将公用的功能提取出来也有利于代码的维护。但是在编写vue组件的时候，经常会遇到组件之间的数据传递的问题。下面是我总结的组件之间传值的种类，以及我工作中遇到传值问题的解决方法。  父组件传值给子组件1、父组件通过 Prop 向子组件传递数据 举例说明； 父组件；&amp;lt;component :post-data=&amp;quot;dataList&amp;quot;&amp;gt">
+<meta property="og:updated_time" content="2019-03-17T15:33:46.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端笔记，欢迎交流">
+<meta name="twitter:title" content="vue组件传值以及问题总结">
+<meta name="twitter:description" content="介绍   vue组件能够高效的复用代码，并且将公用的功能提取出来也有利于代码的维护。但是在编写vue组件的时候，经常会遇到组件之间的数据传递的问题。下面是我总结的组件之间传值的种类，以及我工作中遇到传值问题的解决方法。  父组件传值给子组件1、父组件通过 Prop 向子组件传递数据 举例说明； 父组件；&amp;lt;component :post-data=&amp;quot;dataList&amp;quot;&amp;gt">
 
 
 
@@ -114,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/03/17/vue-component/"/>
 
 
 
 
 
-  <title>前端笔记，欢迎交流</title>
+  <title>vue组件传值以及问题总结 | 前端笔记，欢迎交流</title>
   
 
 
@@ -139,8 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -213,9 +217,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -228,7 +232,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/webpack/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/17/vue-component/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="嘻嘻">
@@ -245,9 +249,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/17/webpack/" itemprop="url">webpack小结</a></h1>
+          <h1 class="post-title" itemprop="name headline">vue组件传值以及问题总结</h1>
         
 
         <div class="post-meta">
@@ -269,28 +271,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端笔记-git篇/" itemprop="url" rel="index">
-                    <span itemprop="name">前端笔记-git篇</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -319,70 +299,41 @@
       
 
       
-        
-          
-            <h2 id="webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。"><a href="#webpack-是一个现代-JavaScript-应用程序的模块打包器-module-bundler-。" class="headerlink" title="webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。"></a>webpack 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。</h2><h2 id="webpack与其他打包工具的比较"><a href="#webpack与其他打包工具的比较" class="headerlink" title="webpack与其他打包工具的比较"></a>webpack与其他打包工具的比较</h2><pre><code>1.      webpack有两种加载方式：同步和异步。异步主要是为了按需加载，提高前端性能
-2.      webpack可以通过加载器可以将其他类型的资源转换为JS输出。
-3.      webpack有强大的插件系统，当webpack内置的功能不能满足我们的构建需求时，我们可以通过使用插件来提高工作效率。
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>   vue组件能够高效的复用代码，并且将公用的功能提取出来也有利于代码的维护。但是在编写vue组件的时候，经常会遇到组件之间的数据传递的问题。下面是我总结的组件之间传值的种类，以及我工作中遇到传值问题的解决方法。</p>
+<hr>
+<h2 id="父组件传值给子组件"><a href="#父组件传值给子组件" class="headerlink" title="父组件传值给子组件"></a>父组件传值给子组件</h2><pre><code>1、父组件通过 Prop 向子组件传递数据
+举例说明；
+父组件；&lt;component :post-data=&quot;dataList&quot;&gt;&lt;/component&gt; //注意:post-data一定不是驼峰命名，因为HTML是不区分大小写的
+子组件；
+Vue.component(&apos;blog-post&apos;, {
+  props: [&apos;postData&apos;],
+  template: &apos;&lt;h3&gt;{{ postData }}&lt;/h3&gt;&apos;
+})   //用来接收父组件传递的数据  
+</code></pre><h2 id="子组件传递给父组件"><a href="#子组件传递给父组件" class="headerlink" title="子组件传递给父组件"></a>子组件传递给父组件</h2><pre><code>1、子组件通过事件像父组件传值的
+举例说明；
+父组件；&lt;component @sendMessage=&quot;getChildMessage&quot;&gt;&lt;/component&gt;
+子组件；
+模板写法：  &lt;div @click=&quot;propEvent&quot;&gt;&lt;/div&gt;
+事件语法；  methods{
+                propEvent(){
+                    $emit(&apos;sendMessage&apos;,&apos;传递的值&apos;)
+                }
+            }
+</code></pre><h2 id="兄弟组件之间相互传值"><a href="#兄弟组件之间相互传值" class="headerlink" title="兄弟组件之间相互传值"></a>兄弟组件之间相互传值</h2><pre><code>1、let vueEvent = new Vue();    //先写一个公用的JS，创建一个vue实例。
+2、vueEvent.$emit(&quot;data&quot;,&apos;传递的数据&apos;)  //在兄弟组件1上注册一个自定义的事件,用于传送数据
+3、vueEvent.$on(&quot;data&quot;,(data) =&gt; {console.log(data)})  //在兄弟组件2上获取兄弟组件1传递的数据
+解释：vm.$emit；触发当前实例上的事件，附件参数都会传给监听器回调
+      vm.$on: 监听当前实例上的自定义事件，事件可以由vm.$emit触发，回调函数会接受所有传入的参数
 </code></pre><hr>
-<h2 id="webpack的注意事项"><a href="#webpack的注意事项" class="headerlink" title="webpack的注意事项"></a>webpack的注意事项</h2><pre><code>1.  在使用webpack之前，一定要确定使用的是最新的node.js版本，不然在打包的时候会发生很多错误。
-2.  webpack1与webpack2使用的时候还是有所差异的，所以要先确定你使用的版本号。
+<h2 id="组件传值的坑"><a href="#组件传值的坑" class="headerlink" title="组件传值的坑"></a>组件传值的坑</h2><pre><code>组件传值的时候会踩到很多坑，下面是我遇到坑的总结，希望能帮助你规避一些错误：
+1、子组件是不可以直接更改父组件传递过来的值的，如果直接更改vue会报错，报错信息；
+Avoid mutating a prop directly since the value will be overwritten whenever the parent component re-renders. 
+Instead, use a data or computed property based on the prop&apos;s value
+解决办法有两种，需要按照不同的情况来定；
+![vue组件传值注意事项](vue-component/vue-component.jpg &quot;vue组件传值注意事项&quot;)  
+2、由于html是不区分大小写的，所以在传值的时候一定注意不可以用驼峰命名要用”kebab-case“命名
 </code></pre><hr>
-<h2 id="安装webpack"><a href="#安装webpack" class="headerlink" title="安装webpack"></a>安装webpack</h2><pre><code>1.  首先新建一个文件夹并执行 npm init(初始化)
-2.  下载webpack npm install --save-dev webpack
-3.  下载您需要的插件以及loader （比如：npm install --save-dev css-loader--save-dev html-webpack-plugin）
-4.  新建webpack.config.js文件，并写入相应配置项，执行 webpack指令就可以完成打包。
-5.  webpack启动本地服务。推荐这篇文章：http://www.jianshu.com/p/42e11515c10f
-6.  注意：如果在下载的时候出现错误，您可以试试 cnpm install --save-dev w在国内下载的快，
-        但是npm要从国外下载会很慢。但是cnpm更新的可能没有npm及时
-</code></pre><hr>
-<h2 id="webpack-部分指令"><a href="#webpack-部分指令" class="headerlink" title="webpack 部分指令"></a>webpack 部分指令</h2><pre><code>1.      npm install --save-dev webpack（安装）
-2.      npm install --save-dev style-loader(下载style-loader  style-load是将打包后的样式插入html的head中)
-3.      npm install --save-dev css-loader(下载css-loader)
-4.      npm install --save-dev html-webpack-plugin(下载html-webpack-plug插件，
-          html-webpack-plugin主要是自动生成打包后的html文件，并自动引用打包文件)
-5.      npm install --save-dev extract-text-webpack-plugin(下载extract-tt-webpack-plugin插件，
-          extract-text-webpack-plugin主要是将css打包当单独的一个css样式中)
-6.      npm run server(启动本地服务器)
-7.      npm install --save-dev sass-loader (打包scss文件)
-</code></pre><hr>
-<h2 id="webpack-config-js-配置代码"><a href="#webpack-config-js-配置代码" class="headerlink" title="webpack.config.js 配置代码"></a>webpack.config.js 配置代码</h2><pre><code>···
-           var HtmlWebpackPlugin = require(&apos;html-webpack-plugin&apos;); // 打包生成html文件
-           const ExtractTextPlugin = require(&quot;extract-text-webpack-plugin&quot;); // 将css文件单独打包到一个文件中
-           const path = require(&apos;path&apos;);
 
-           module.exports = {
-                   entry: &apos;./src/main.js&apos;,//唯一的入口文件。
-                   devtool: &apos;inline-source-map&apos;,//调试时使用，可以定位到报错的文件以及位置
-                   output: {//出口文件 可以有多个
-                           filename: &apos;bundle.js&apos;, //打包的文件名
-                           path: path.resolve(__dirname, &apos;dist&apos;) // 打包文件路径
-                   },
-                   devServer: {
-                           contentBase: &quot;./dist&quot;,//本地服务器所加载的页面所在的目录
-                           historyApiFallback: true,//不跳转
-                           inline: true//实时刷新
-                   },
-                   module: {
-                           rules: [ //使用loader
-                                   {
-                                           test: /\.scss$/, //编译.scss文件
-                                           use: ExtractTextPlugin.extract({
-                                             fallback: &quot;style-loader&quot;,
-                                             use: [&quot;css-loader&quot;,&quot;sass-loader&quot;]
-                                           })
-                                   }
-                           ]
-                   },
-                   plugins: [ //使用插件
-                           new HtmlWebpackPlugin(),
-                           new ExtractTextPlugin(&quot;styles.css&quot;)
-                   ]
-           };
-   ···
-</code></pre>
-          
-        
       
     </div>
     
@@ -397,14 +348,44 @@
 
     <footer class="post-footer">
       
-
+        <div class="post-tags">
+          
+            <a href="/tags/vue，vue组件/" rel="tag"># vue，vue组件</a>
+          
+            <a href="/tags/vue组件传值/" rel="tag"># vue组件传值</a>
+          
+            <a href="/tags/vue组件传值问题总结/" rel="tag"># vue组件传值问题总结</a>
+          
+        </div>
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/17/this/" rel="next" title="this指向总结">
+                <i class="fa fa-chevron-left"></i> this指向总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/17/webpack/" rel="prev" title="webpack小结">
+                webpack小结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
-        <div class="post-eof"></div>
+
+      
       
     </footer>
   </div>
@@ -414,14 +395,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -429,6 +407,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -449,8 +431,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Übersicht
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -510,6 +501,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#父组件传值给子组件"><span class="nav-number">2.</span> <span class="nav-text">父组件传值给子组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#子组件传递给父组件"><span class="nav-number">3.</span> <span class="nav-text">子组件传递给父组件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#兄弟组件之间相互传值"><span class="nav-number">4.</span> <span class="nav-text">兄弟组件之间相互传值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组件传值的坑"><span class="nav-number">5.</span> <span class="nav-text">组件传值的坑</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -643,6 +650,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
